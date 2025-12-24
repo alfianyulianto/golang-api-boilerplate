@@ -301,7 +301,7 @@ Authorization: Bearer <your-jwt-token>
 #### Account
 
 - `GET /api/auth/_current` - Get account info (Protected)
-- `PUT /api/auth/account` - Update account (Protected)
+- `PUT /api/auth/_current` - Update account (Protected)
 - `POST /api/auth/logout` - Logout user (Protected)
 - `PUT /api/auth/update-password` - Update password (Protected)
 
