@@ -1,19 +1,19 @@
 # NYINAUNI GOLANG (Golang Api Boilerplate)
 
-NYINAUNI GOLANG adalah aplikasi backend berbasis Golang yang berujuan sebagai boilerplate. Aplikasi ini dibangun dengan arsitektur clean architecture dan menggunakan berbagai library modern untuk performa optimal.
+NYINAUNI GOLANG adalah aplikasi backend berbasis Golang yang disediakan sebagai boilerplate untuk membangun layanan yang terstruktur, scalable, dan mudah dikembangkan. Aplikasi ini menerapkan Clean Architecture serta memanfaatkan library modern untuk performa dan maintainability yang optimal.
 
 ## 📋 Daftar Isi
 
-- [Teknologi](#teknologi)
-- [Fitur](#fitur)
-- [Struktur Project](#struktur-project)
-- [Persyaratan](#persyaratan)
-- [Instalasi](#instalasi)
-- [Konfigurasi](#konfigurasi)
-- [Menjalankan Aplikasi](#menjalankan-aplikasi)
-- [Database Migration](#database-migration)
-- [API Documentation](#api-documentation)
-- [Arsitektur](#arsitektur)
+- [Teknologi](#-teknologi)
+- [Fitur](#-fitur)
+- [Struktur Project](#-struktur-project)
+- [Persyaratan](#-persyaratan)
+- [Instalasi](#-instalasi)
+- [Konfigurasi](#-konfigurasi)
+- [Menjalankan Aplikasi](#-menjalankan-aplikasi)
+- [Database Migration](#-database-migration)
+- [API Documentation](#-api-documentation)
+- [Arsitektur](#-arsitektur)
 
 ## 🚀 Teknologi
 
@@ -121,7 +121,7 @@ Sebelum menjalankan aplikasi, pastikan Anda telah menginstal:
 
 - **Go** >= 1.24.5
 - **MySQL** >= 5.7 atau >= 8.0
-- **Redis** >= 6.0
+- **Redis** >= 8.0
 - **Git**
 
 ## 🛠️ Instalasi
@@ -293,13 +293,17 @@ Authorization: Bearer <your-jwt-token>
 
 - `POST /api/auth/register` - Register user baru
 - `POST /api/auth/login` - Login dan dapatkan JWT token
-- `POST /api/auth/refresh` - Refresh JWT token
-- `POST /api/auth/logout` - Logout user
+- `POST /api/auth/refresh-token` - Refresh JWT token
+- `POST /api/auth/request-reset-password` - Request reset password
+- `POST /api/auth/reset-password` - Reset password
+
 
 #### Account
 
-- `GET /api/auth/account` - Get account info (Protected)
+- `GET /api/auth/_current` - Get account info (Protected)
 - `PUT /api/auth/account` - Update account (Protected)
+- `POST /api/auth/logout` - Logout user (Protected)
+- `PUT /api/auth/update-password` - Update password (Protected)
 
 #### Users
 
@@ -384,19 +388,6 @@ type CreateUserRequest struct {
 - CORS configuration
 - Environment-based configuration
 
-## 🧪 Testing (Coming Soon)
-
-```bash
-# Run all tests
-go test ./...
-
-# Run tests with coverage
-go test -cover ./...
-
-# Run specific package tests
-go test ./internal/usecase/...
-```
-
 ## 📊 Monitoring & Logging
 
 ### Log Levels
@@ -426,10 +417,6 @@ Contributions are welcome! Please follow these steps:
 3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open Pull Request
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` file for more information.
 
 ## 👤 Author
 
